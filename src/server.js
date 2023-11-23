@@ -1,6 +1,5 @@
 import express from "express";
 import PdfPrinter from "pdfmake";
-import fs from "fs"
 
 const app = express();
 
@@ -47,11 +46,17 @@ app.get("/report", (req, res) => {
    };
 
    const pdfDoc = printer.createPdfKitDocument(docDefinitions);
+   const chunks = []
+   pdfDoc.on("data", (chunk) => {
+      chunks.push(chunk)
+   })
 
-   pdfDoc.pipe(fs.createWriteStream("Relatorio.pdf"))
+   pdfDoc.end();
 
-
-   return res.send("foi");
+   pdfDoc.on("end",() =>{
+      const result = Buffer.concat(chunks)
+      res.end(result)
+   });
 });
 
 app.listen(3000, () => {
