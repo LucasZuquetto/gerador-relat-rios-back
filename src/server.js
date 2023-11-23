@@ -1,5 +1,5 @@
 import express from "express";
-import PdfPrinter from "pdfmake";
+import PdfPrinter from "pdfmake"
 
 const app = express();
 
