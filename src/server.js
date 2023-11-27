@@ -8,299 +8,307 @@ const __dirname = path.resolve(path.dirname(""));
 
 //TODO
 //receber os dados e criar o pdf
-//estilizar o pdf
+//estilizar o pdf - mudar imagem background, mudar fonte letra, ajustar margin site para clicar, criar footer, ajustes de margin geral pra folha a3
 //criar um client side
 //deploy
-
-const data = [
-   {
-      profissionais: "RVP Imóveis",
-      endereço:
-         "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
-      site: "https://www.rvpimoveis.com.br/",
-      apresentamos: "S",
-      apresentamosNao: "",
+const data = {
+   dados: [
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço: "Sem Endereço",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "Sem Site",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço:
+            "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "",
+         apresentamosNao: "Em andamento",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "",
+         apresentamosNao: "Em andamento",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço:
+            "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço:
+            "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "",
+         apresentamosNao: "Em andamento",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "",
+         apresentamosNao: "Em andamento",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço:
+            "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço:
+            "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "",
+         apresentamosNao: "Em andamento",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "",
+         apresentamosNao: "Em andamento",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço:
+            "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço:
+            "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "",
+         apresentamosNao: "Em andamento",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "",
+         apresentamosNao: "Em andamento",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço:
+            "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço:
+            "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "",
+         apresentamosNao: "Em andamento",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "",
+         apresentamosNao: "Em andamento",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço:
+            "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço:
+            "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "",
+         apresentamosNao: "Em andamento",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "",
+         apresentamosNao: "Em andamento",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço:
+            "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço:
+            "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "",
+         apresentamosNao: "Em andamento",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "",
+         apresentamosNao: "Em andamento",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço:
+            "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço:
+            "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "",
+         apresentamosNao: "Em andamento",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "",
+         apresentamosNao: "Em andamento",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço:
+            "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço:
+            "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "",
+         apresentamosNao: "Em andamento",
+      },
+   ],
+   header: {
+      empresa: "RENATA CORTOPASSI",
+      consultora: "MARCELA",
+      contrato: "28/06/2023",
+      divulgação: "13 a 17 NOV",
+      publico: "CORRETORES DE GOIÂNIA/GO",
    },
-   {
-      profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
-      endereço: "Sem Endereço",
-      site: "http://www.smarthouseimob.com.br/",
-      apresentamos: "S",
-      apresentamosNao: "",
-   },
-   {
-      profissionais: "RVP Imóveis",
-      endereço:
-         "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
-      site: "Sem Site",
-      apresentamos: "S",
-      apresentamosNao: "",
-   },
-   {
-      profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
-      endereço:
-         "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
-      site: "http://www.smarthouseimob.com.br/",
-      apresentamos: "",
-      apresentamosNao: "Em andamento",
-   },
-   {
-      profissionais: "RVP Imóveis",
-      endereço:
-         "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
-      site: "https://www.rvpimoveis.com.br/",
-      apresentamos: "",
-      apresentamosNao: "Em andamento",
-   },
-   {
-      profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
-      endereço:
-         "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
-      site: "http://www.smarthouseimob.com.br/",
-      apresentamos: "S",
-      apresentamosNao: "",
-   },
-   {
-      profissionais: "RVP Imóveis",
-      endereço:
-         "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
-      site: "https://www.rvpimoveis.com.br/",
-      apresentamos: "S",
-      apresentamosNao: "",
-   },
-   {
-      profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
-      endereço:
-         "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
-      site: "http://www.smarthouseimob.com.br/",
-      apresentamos: "",
-      apresentamosNao: "Em andamento",
-   },
-   {
-      profissionais: "RVP Imóveis",
-      endereço:
-         "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
-      site: "https://www.rvpimoveis.com.br/",
-      apresentamos: "",
-      apresentamosNao: "Em andamento",
-   },
-   {
-      profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
-      endereço:
-         "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
-      site: "http://www.smarthouseimob.com.br/",
-      apresentamos: "S",
-      apresentamosNao: "",
-   },
-   {
-      profissionais: "RVP Imóveis",
-      endereço:
-         "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
-      site: "https://www.rvpimoveis.com.br/",
-      apresentamos: "S",
-      apresentamosNao: "",
-   },
-   {
-      profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
-      endereço:
-         "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
-      site: "http://www.smarthouseimob.com.br/",
-      apresentamos: "",
-      apresentamosNao: "Em andamento",
-   },
-   {
-      profissionais: "RVP Imóveis",
-      endereço:
-         "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
-      site: "https://www.rvpimoveis.com.br/",
-      apresentamos: "",
-      apresentamosNao: "Em andamento",
-   },
-   {
-      profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
-      endereço:
-         "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
-      site: "http://www.smarthouseimob.com.br/",
-      apresentamos: "S",
-      apresentamosNao: "",
-   },
-   {
-      profissionais: "RVP Imóveis",
-      endereço:
-         "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
-      site: "https://www.rvpimoveis.com.br/",
-      apresentamos: "S",
-      apresentamosNao: "",
-   },
-   {
-      profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
-      endereço:
-         "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
-      site: "http://www.smarthouseimob.com.br/",
-      apresentamos: "",
-      apresentamosNao: "Em andamento",
-   },
-   {
-      profissionais: "RVP Imóveis",
-      endereço:
-         "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
-      site: "https://www.rvpimoveis.com.br/",
-      apresentamos: "",
-      apresentamosNao: "Em andamento",
-   },
-   {
-      profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
-      endereço:
-         "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
-      site: "http://www.smarthouseimob.com.br/",
-      apresentamos: "S",
-      apresentamosNao: "",
-   },
-   {
-      profissionais: "RVP Imóveis",
-      endereço:
-         "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
-      site: "https://www.rvpimoveis.com.br/",
-      apresentamos: "S",
-      apresentamosNao: "",
-   },
-   {
-      profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
-      endereço:
-         "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
-      site: "http://www.smarthouseimob.com.br/",
-      apresentamos: "",
-      apresentamosNao: "Em andamento",
-   },
-   {
-      profissionais: "RVP Imóveis",
-      endereço:
-         "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
-      site: "https://www.rvpimoveis.com.br/",
-      apresentamos: "",
-      apresentamosNao: "Em andamento",
-   },
-   {
-      profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
-      endereço:
-         "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
-      site: "http://www.smarthouseimob.com.br/",
-      apresentamos: "S",
-      apresentamosNao: "",
-   },
-   {
-      profissionais: "RVP Imóveis",
-      endereço:
-         "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
-      site: "https://www.rvpimoveis.com.br/",
-      apresentamos: "S",
-      apresentamosNao: "",
-   },
-   {
-      profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
-      endereço:
-         "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
-      site: "http://www.smarthouseimob.com.br/",
-      apresentamos: "",
-      apresentamosNao: "Em andamento",
-   },
-   {
-      profissionais: "RVP Imóveis",
-      endereço:
-         "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
-      site: "https://www.rvpimoveis.com.br/",
-      apresentamos: "",
-      apresentamosNao: "Em andamento",
-   },
-   {
-      profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
-      endereço:
-         "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
-      site: "http://www.smarthouseimob.com.br/",
-      apresentamos: "S",
-      apresentamosNao: "",
-   },
-   {
-      profissionais: "RVP Imóveis",
-      endereço:
-         "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
-      site: "https://www.rvpimoveis.com.br/",
-      apresentamos: "S",
-      apresentamosNao: "",
-   },
-   {
-      profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
-      endereço:
-         "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
-      site: "http://www.smarthouseimob.com.br/",
-      apresentamos: "",
-      apresentamosNao: "Em andamento",
-   },
-   {
-      profissionais: "RVP Imóveis",
-      endereço:
-         "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
-      site: "https://www.rvpimoveis.com.br/",
-      apresentamos: "",
-      apresentamosNao: "Em andamento",
-   },
-   {
-      profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
-      endereço:
-         "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
-      site: "http://www.smarthouseimob.com.br/",
-      apresentamos: "S",
-      apresentamosNao: "",
-   },
-   {
-      profissionais: "RVP Imóveis",
-      endereço:
-         "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
-      site: "https://www.rvpimoveis.com.br/",
-      apresentamos: "S",
-      apresentamosNao: "",
-   },
-   {
-      profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
-      endereço:
-         "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
-      site: "http://www.smarthouseimob.com.br/",
-      apresentamos: "",
-      apresentamosNao: "Em andamento",
-   },
-   {
-      profissionais: "RVP Imóveis",
-      endereço:
-         "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
-      site: "https://www.rvpimoveis.com.br/",
-      apresentamos: "",
-      apresentamosNao: "Em andamento",
-   },
-   {
-      profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
-      endereço:
-         "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
-      site: "http://www.smarthouseimob.com.br/",
-      apresentamos: "S",
-      apresentamosNao: "",
-   },
-   {
-      profissionais: "RVP Imóveis",
-      endereço:
-         "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
-      site: "https://www.rvpimoveis.com.br/",
-      apresentamos: "S",
-      apresentamosNao: "",
-   },
-   {
-      profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
-      endereço:
-         "Av. Barão do Rio Branco, 1820 - loja 03 - Centro, Juiz de Fora - MG, 36015-510",
-      site: "http://www.smarthouseimob.com.br/",
-      apresentamos: "",
-      apresentamosNao: "Em andamento",
-   },
-];
+};
 
 app.get("/report", async (req, res) => {
    const fonts = {
@@ -332,7 +340,7 @@ app.get("/report", async (req, res) => {
    const printer = new PdfPrinter(fonts);
 
    const body = [];
-   for await (let dado of data) {
+   for await (let dado of data.dados) {
       const rows = new Array();
       rows.push(dado.profissionais);
       rows.push(dado.endereço);
@@ -343,22 +351,63 @@ app.get("/report", async (req, res) => {
    }
 
    const docDefinitions = {
+      pageSize: 'A3',
       background: {
          image: path.join(__dirname, "src", "OIP.jpeg"),
          opacity: 0.3,
          margin: [5, 300],
       },
       defaultStyle: { font: "Helvetica", fontSize: 10, alignment: "center" },
-      header: ["lala"],
-      pageBreakBefore: function (
-         currentNode,
-         followingNodesOnPage,
-         nodesOnNextPage,
-         previousNodesOnPage
-      ) {
-         return (
-            currentNode.headlineLevel === 1 && followingNodesOnPage.length === 1
-         );
+      header: {
+         alignment: "left",
+         columns: [
+            {
+               text: [
+                  `CLIENTE: `,
+                  {
+                     text: `${data.header.empresa}\n`,
+                     bold: true,
+                     color: "black",
+                  },
+                  "CONSULTORA: ",
+                  {
+                     text: `${data.header.consultora}\n`,
+                     bold: true,
+                     color: "black",
+                  },
+                  "CONTRATO: ",
+                  {
+                     text: `${data.header.contrato}`,
+                     bold: true,
+                     color: "black",
+                  },
+               ],
+               color: "#434CD7",
+               bold: true,
+               fontSize: 10,
+               margin: [40, 10],
+            },
+            {
+               text: [
+                  `PERÍODO DE DIVULGAÇÃO: `,
+                  {
+                     text: `${data.header.divulgação}\n`,
+                     bold: true,
+                     color: "black",
+                  },
+                  "PÚBLICO-ALVO: ",
+                  {
+                     text: `${data.header.publico}`,
+                     bold: true,
+                     color: "black",
+                  },
+               ],
+               color: "#434CD7",
+               bold: true,
+               fontSize: 10,
+               margin: [0, 10],
+            },
+         ],
       },
       content: [
          {
@@ -423,6 +472,7 @@ app.get("/report", async (req, res) => {
 
    pdfDoc.on("end", () => {
       const result = Buffer.concat(chunks);
+      console.log("sending pdf");
       res.end(result);
    });
 });
