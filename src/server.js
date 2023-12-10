@@ -3,16 +3,138 @@ import PdfPrinter from "pdfmake";
 import path from "path";
 
 const app = express();
+const blue = "#325cae";
 
 const __dirname = path.resolve(path.dirname(""));
 
 //TODO
 //receber os dados e criar o pdf
-//estilizar o pdf - mudar imagem background, mudar fonte letra, ajustar margin site para clicar, criar footer, ajustes de margin geral pra folha a3
+//estilizar o pdf - mudar imagem background, mudar fonte letra
 //criar um client side
 //deploy
+
 const data = {
    dados: [
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço: "Sem Endereço",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço: "Sem Endereço",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço: "Sem Endereço",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço: "Sem Endereço",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço: "Sem Endereço",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço: "Sem Endereço",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço: "Sem Endereço",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "RVP Imóveis",
+         endereço:
+            "R. Eng. Geraldo Magela de Mattos Sanábio, 422 - Recanto da Mata, Juiz de Fora - MG, 36083-802",
+         site: "https://www.rvpimoveis.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
+      {
+         profissionais: "SMART HOUSE NEGÓCIOS IMOBILIÁRIOS",
+         endereço: "Sem Endereço",
+         site: "http://www.smarthouseimob.com.br/",
+         apresentamos: "S",
+         apresentamosNao: "",
+      },
       {
          profissionais: "RVP Imóveis",
          endereço:
@@ -339,19 +461,19 @@ app.get("/report", async (req, res) => {
    };
    const printer = new PdfPrinter(fonts);
 
-   const body = [];
+   const formatedData = [];
    for await (let dado of data.dados) {
       const rows = new Array();
       rows.push(dado.profissionais);
       rows.push(dado.endereço);
-      rows.push({ text: dado.site, color: "blue" });
+      rows.push({ text: dado.site, color: "#0000FF" });
       rows.push(dado.apresentamos);
       rows.push(dado.apresentamosNao);
-      body.push(rows);
+      formatedData.push(rows);
    }
 
    const docDefinitions = {
-      pageSize: 'A3',
+      pageSize: "A3",
       background: {
          image: path.join(__dirname, "src", "OIP.jpeg"),
          opacity: 0.3,
@@ -382,16 +504,16 @@ app.get("/report", async (req, res) => {
                      color: "black",
                   },
                ],
-               color: "#434CD7",
+               color: blue,
                bold: true,
                fontSize: 10,
-               margin: [40, 10],
+               margin: [40, 12],
             },
             {
                text: [
                   `PERÍODO DE DIVULGAÇÃO: `,
                   {
-                     text: `${data.header.divulgação}\n`,
+                     text: `${data.header.divulgação}\n\n`,
                      bold: true,
                      color: "black",
                   },
@@ -402,45 +524,46 @@ app.get("/report", async (req, res) => {
                      color: "black",
                   },
                ],
-               color: "#434CD7",
+               color: blue,
                bold: true,
                fontSize: 10,
-               margin: [0, 10],
+               margin: [0, 12],
             },
          ],
       },
       content: [
          {
+            margin: [0, 15],
             table: {
                body: [
                   [
                      {
                         text: "PROFISSIONAIS/EMPRESAS",
                         bold: true,
-                        color: "#434CD7",
+                        color: blue,
                      },
                      {
                         text: "ENDEREÇO",
                         bold: true,
-                        color: "#434CD7",
+                        color: blue,
                      },
                      {
                         text: "SITE",
                         bold: true,
-                        color: "#434CD7",
+                        color: blue,
                      },
                      {
                         text: "APRESENTAMOS S/N",
                         bold: true,
                         colSpan: 2,
-                        color: "#434CD7",
+                        color: blue,
                      },
                      {},
                   ],
-                  ...body,
+                  ...formatedData,
                ],
                headerRows: 1,
-               widths: [120, 150, 140, 30, 55],
+               widths: [160, 200, 240, 40, 85],
             },
             layout: {
                hLineWidth: function (i, node) {
@@ -454,12 +577,19 @@ app.get("/report", async (req, res) => {
                      ? "black"
                      : "gray";
                },
-               paddingRight: function (i, node) {
-                  return i === node.table.widths.length - 1 ? 0 : 0;
+               paddingTop: function (i, node) {
+                  //paddingtop
+                  return i === node.table.widths.length - 1 ? 5 : 5;
                },
             },
          },
       ],
+      footer: {
+         text: `- ${data.header.empresa} -`,
+         color: blue,
+         fontSize: 9,
+         bold: true,
+      },
    };
 
    const pdfDoc = printer.createPdfKitDocument(docDefinitions);
