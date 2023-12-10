@@ -149,7 +149,7 @@ app.post("/report", async (req, res) => {
                   ...formatedData,
                ],
                headerRows: 1,
-               widths: [160, 200, 240, 40, 85],
+               widths: [160, 200, 240, 48, 85],
             },
             layout: {
                hLineWidth: function (i, node) {
@@ -189,8 +189,6 @@ app.post("/report", async (req, res) => {
    pdfDoc.on("end", () => {
       const result = Buffer.concat(chunks);
       console.log("sending pdf");
-      res.setHeader("Content-Type", "application/pdf");
-      res.setHeader("Content-Disposition", "attachment; filename=report.pdf");
 
       res.end(result);
    });
