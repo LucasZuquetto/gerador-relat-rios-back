@@ -11,9 +11,12 @@ const blue = "#325cae";
 const __dirname = path.resolve(path.dirname(""));
 
 //TODO
-//receber os dados e criar o pdf
-//estilizar o pdf - mudar imagem background, mudar fonte letra
-//criar um client side
+//form input use state unico
+//organizar o código
+//meter uns catch procurar erros
+//criar perfis para empresas, para nao ter que preencher os inputs
+//tirar input de data e fazer dinamico
+//estilizar o pdf - mudar imagem background, mudar fonte letra, margins, cor
 //deploy
 
 app.post("/report", async (req, res) => {
@@ -52,18 +55,23 @@ app.post("/report", async (req, res) => {
       const rows = new Array();
       rows.push(dado.profissionais);
       rows.push(dado.endereço);
-      rows.push({ text: dado.site, color: "#0000FF" });
+      if (dado.site === "Sem site") {
+         rows.push({ text: dado.site });
+      } else {
+         rows.push({ text: dado.site, color: "#0000FF" });
+      }
       rows.push(dado.apresentamos);
       rows.push(dado.apresentamosNao);
       formatedData.push(rows);
    }
 
    const docDefinitions = {
-      pageSize: "A3",
+      pageSize: { width: 850, height: 590 },
       background: {
-         image: path.join(__dirname, "src", "OIP.jpeg"),
-         opacity: 0.3,
-         margin: [5, 300],
+         image: path.join(__dirname, "src", "myconext.jpeg"),
+         opacity: 0.2,
+         margin: [5, 100],
+         width: 600,
       },
       defaultStyle: { font: "Helvetica", fontSize: 10, alignment: "center" },
       header: {
