@@ -16,8 +16,7 @@ const __dirname = path.resolve(path.dirname(""));
 //meter uns catch procurar erros
 //criar perfis para empresas, para nao ter que preencher os inputs
 //tirar input de data e fazer dinamico
-//estilizar o pdf - mudar imagem background, mudar fonte letra, margins, cor
-//deploy
+//estilizar o pdf -  oq marcela quer
 
 app.post("/report", async (req, res) => {
    const data = req.body;
@@ -55,10 +54,11 @@ app.post("/report", async (req, res) => {
       const rows = new Array();
       rows.push(dado.profissionais);
       rows.push(dado.endereço);
+
       if (dado.site === "Sem site") {
          rows.push({ text: dado.site });
       } else {
-         rows.push({ text: dado.site, color: "#0000FF" });
+         rows.push({ text: dado.site, color: "#0000FF", link: dado.site });
       }
       rows.push(dado.apresentamos);
       rows.push(dado.apresentamosNao);
@@ -100,14 +100,15 @@ app.post("/report", async (req, res) => {
                ],
                color: blue,
                bold: true,
-               fontSize: 10,
-               margin: [40, 12],
+               fontSize: 11,
+               heights:100,
+               margin: [40, 9,0,0], //
             },
             {
                text: [
                   `PERÍODO DE DIVULGAÇÃO: `,
                   {
-                     text: `${data.header.divulgação}\n\n`,
+                     text: `${data.header.divulgação}\n`,
                      bold: true,
                      color: "black",
                   },
@@ -120,15 +121,17 @@ app.post("/report", async (req, res) => {
                ],
                color: blue,
                bold: true,
-               fontSize: 10,
-               margin: [0, 12],
+               fontSize: 11,
+               margin: [0, 9],
             },
          ],
       },
       content: [
          {
-            margin: [0, 15],
+            margin: [0, 20],
             table: {
+               dontBreakRows: true,
+               heights: 16,
                body: [
                   [
                      {
@@ -157,8 +160,9 @@ app.post("/report", async (req, res) => {
                   ...formatedData,
                ],
                headerRows: 1,
-               widths: [160, 200, 240, 48, 85],
+               widths: [205, 185, 210, 65, 65],
             },
+
             layout: {
                hLineWidth: function (i, node) {
                   return i === 0 || i === node.table.body.length ? 1 : 1;
@@ -172,8 +176,7 @@ app.post("/report", async (req, res) => {
                      : "gray";
                },
                paddingTop: function (i, node) {
-                  //paddingtop
-                  return i === node.table.widths.length - 1 ? 5 : 5;
+                  return i === node.table.widths.length - 1 ? 3 : 3;
                },
             },
          },
