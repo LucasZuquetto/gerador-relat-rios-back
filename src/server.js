@@ -16,6 +16,14 @@ const __dirname = path.resolve(path.dirname(""));
 //criar perfis para empresas, para nao ter que preencher os inputs
 //tirar input de data e fazer dinamico
 //ORGANIZAR sozinho a ordem de invalido e enviado
+app.get("/health", (req,res) => {
+   try {
+      res.send("Server is listening")
+   } catch (error) {
+      console.error(error)
+      res.sendStatus(500)
+   }
+})
 
 app.post("/report", async (req, res) => {
    try {
